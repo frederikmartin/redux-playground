@@ -1,0 +1,22 @@
+{
+  "name": "redux-playground",
+  "version": "0.0.1",
+  "description": "Playground for using Redux with plain JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frederikmartin/redux-playground.git"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "Frederik Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frederikmartin/redux-playground/issues"
+  },
+  "homepage": "https://github.com/frederikmartin/redux-playground#readme"
+}
