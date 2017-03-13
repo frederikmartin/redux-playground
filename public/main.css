@@ -10,3 +10,8 @@
 .fm-container--content {
     margin: 20px 0;
 }
+
+button {
+    cursor: pointer;
+    margin: 0 5px;
+}
