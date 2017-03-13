@@ -1,6 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import logger from 'redux-logger';
 
+import { httpPut } from './http';
+
 // Pages
 export const DETAILS = "DETAILS";
 export const AVAILABILITY = "AVAILABILITY";
@@ -8,7 +10,7 @@ export const AVAILABILITY = "AVAILABILITY";
 // Requests
 export const READY = "READY";
 export const WAITING = "WAITING";
-export const PRODUCT_UPDATE_ACCEPTED = "PRODUCT_UPDATE_ACCEPTED";
+export const PRODUCT_UPDATED_SUCCESSFULLY = "PRODUCT_UPDATED_SUCCESSFULLY";
 
 // Actions
 export const CHANGE_PAGE = "CHANGE_PAGE";
@@ -185,6 +187,18 @@ const changeProductDirtyAction = (value) => {
         value
     };
 };
+const saveProductAction = () => {
+    httpPut("/api/products", () => {
+        store.dispatch({
+            type: PRODUCT_UPDATED_SUCCESSFULLY
+        });
+    });
+
+    return {
+        type: CHANGE_PRODUCT_DIRTY,
+        value: false
+    };
+};
 
 // Event listener
 document.getElementById("btn-details-link").addEventListener("click", (event) => {
@@ -212,7 +226,7 @@ document.getElementById("btn-availability-link").addEventListener("click", (even
 document.getElementById("btn-save").addEventListener("click", (event) => {
     event.preventDefault();
 
-    store.dispatch(changeProductDirtyAction(false));
+    store.dispatch(saveProductAction());
 });
 
 render();
